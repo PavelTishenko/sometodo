@@ -3,7 +3,15 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-
-
+  <form>
+    <input type="text" (change)="addTxt($event)"/><input type="submit" (click)="addToList($event)">
+    <ul>
+      <li class="li-text" *ngFor="let tex of text" id="{{tex.count}}">{{tex.next}} Date: {{tex.dt}}
+        <app-checkbox ></app-checkbox>
+        <button class="btn" type="button" id="{{tex.count}}" (click)="some($event)">DEL</button>
+      </li>
+    </ul>
+  </form>
+</div>
 
 <router-outlet></router-outlet>
