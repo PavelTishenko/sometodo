@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
+import {FormsModule} from '@angular/forms';
 import {CheckboxComponent} from './checkbox.component';
+import {log} from 'util';
 
 @Component({
   selector: 'app-root',
@@ -10,25 +11,18 @@ import {CheckboxComponent} from './checkbox.component';
 export class AppComponent {
   title = 'apptodo';
   text: object[] = [];
-  valInput: string;
-  dat = new Date();
-  day = this.dat.getDay();
-  month = this.dat.getMonth();
-  year = this.dat.getFullYear();
+  valInput: string = null;
   count = 0;
-
-  addTxt(event) {
-    this.valInput = event.target.value;
-  }
-  addToList(event) {
-    event.preventDefault();
-    this.text.push({next: this.valInput, dt: `${this.day}.${this.month}.${this.year}`, count: `${this.count}`});
+  addToList() {
+    const today =  Date.now();
+    this.text.push({next: this.valInput, dt: today, count: `${this.count}`});
     this.count = ++this.count;
+    this.valInput = ' ';
   }
-  some(event) {
-    if (this.text.length) {
-      const li = document.getElementById(`${event.target.id}`);
-      li.classList.add('noViability');
+  remove(tex) {
+    if (this.text.length ) {
+      const ind = this.text.indexOf(tex);
+      this.text.splice(ind, 1);
     }
   }
 }

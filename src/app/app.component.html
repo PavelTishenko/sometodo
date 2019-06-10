@@ -4,11 +4,12 @@
     Welcome to {{ title }}!
   </h1>
   <form>
-    <input type="text" (change)="addTxt($event)"/><input type="submit" (click)="addToList($event)">
+    <input type="text"  [(ngModel)]="valInput" name=" "/>
+    <input type="submit" (click)="addToList()">
     <ul>
-      <li class="li-text" *ngFor="let tex of text" id="{{tex.count}}">{{tex.next}} Date: {{tex.dt}}
+      <li class="li-text" *ngFor="let tex of text" id="{{tex.count}}">{{tex.next}} Date: {{tex.dt | date}}
         <app-checkbox ></app-checkbox>
-        <button class="btn" type="button" id="{{tex.count}}" (click)="some($event)">DEL</button>
+        <button class="btn" type="button" id="{{tex.count}}" (click)="remove(tex)" >DEL</button>
       </li>
     </ul>
   </form>
