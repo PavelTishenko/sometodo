@@ -7,9 +7,7 @@
     <input type="text"  [(ngModel)]="valInput" name=" "/>
     <input type="submit" (click)="addToList()">
     <ul>
-      <li class="li-text" *ngFor="let tex of text" id="{{tex.count}}">{{tex.next}} Date: {{tex.dt | date}}
-        <app-checkbox ></app-checkbox>
-        <button class="btn" type="button" id="{{tex.count}}" (click)="remove(tex)" >DEL</button>
+      <li class="li-text" *ngFor="let tex of text" id="{{tex.count}}"><app-checkbox [item]="tex" (remove)="remove($event)"></app-checkbox>
       </li>
     </ul>
   </form>

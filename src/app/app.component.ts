@@ -19,7 +19,7 @@ export class AppComponent {
     this.count = ++this.count;
     this.valInput = ' ';
   }
-  remove(tex) {
+  remove(tex: object) {
     if (this.text.length ) {
       const ind = this.text.indexOf(tex);
       this.text.splice(ind, 1);

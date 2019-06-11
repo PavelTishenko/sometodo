@@ -6,9 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CheckboxComponent} from './checkbox.component';
 
+
 @NgModule({
   declarations: [
-    AppComponent, CheckboxComponent
+    AppComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,
